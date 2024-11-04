@@ -21,14 +21,14 @@ class TestLoginCourier:
         assert response.status_code == 404 and 'Учетная запись не найдена' in response.text
 
     @allure.title('Тест на обязательность поля "login"')
-    def test_missing_required_field_error(self):
+    def test_missing_required_login_error(self):
         response = requests.post(
             Urls.LOGIN_COURIERS_URL,
             FakerData.generate_data_account_without_login())
         assert response.status_code == 400 and 'Недостаточно данных для входа' in response.text
 
     @allure.title('Тест на обязательность полей "password"')
-    def test_missing_required_field_error(self):
+    def test_missing_required_password_error(self):
         response = requests.post(
             Urls.LOGIN_COURIERS_URL,
             FakerData.generate_data_account_without_password())
