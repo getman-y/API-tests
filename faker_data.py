@@ -51,26 +51,6 @@ class FakerData:
         }
         return data
 
-    @staticmethod
-    def register_new_courier_and_return_login_password():
-        login_pass = {}
-        faker_data = Faker()
-        login = faker_data.user_name()
-        password = faker_data.password()
-        first_name = faker_data.name()
-        payload = {
-            "login": login,
-            "password": password,
-            "firstName": first_name
-        }
-
-        response = requests.post(Urls.CREATE_COURIERS_URL, data=payload)
-
-        if response.status_code == 201:
-            login_pass["login"] = login
-            login_pass["password"] = password
-        return login_pass
-
 
 class FakerOrders:
     data = {
