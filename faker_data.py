@@ -38,7 +38,6 @@ class FakerData:
             "login": login,
             "first_name": first_name
         }
-        print(data)
         return data
 
     @staticmethod
